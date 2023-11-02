@@ -16,10 +16,7 @@ export function registerKeyboardShortcut() {
   // Ctrl + K in Windows
   const isMac = useIsMac()
   const keydownHandler = (e: KeyboardEvent) => {
-    if (
-      (e.key === 'k')
-      && (isMac.value ? e.metaKey : e.ctrlKey)
-    ) {
+    if (e.key === 'k' && (isMac.value ? e.metaKey : e.ctrlKey)) {
       e.preventDefault()
       openCommandModal()
     }
