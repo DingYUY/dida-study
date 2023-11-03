@@ -1,32 +1,33 @@
 import { describe, expect, it, vi } from 'vitest'
-import { GITHUB_URL, goToGithub, useGoto } from '../goto'
+import { GITHUB_URL, openGithub, useGoto } from '../goto'
 import { useSetup } from '@/tests/helper'
 import { RouteNames } from '@/router/const'
 
-describe('test the header', () => {
-  it('should go to home page', () => {
+describe('the header', () => {
+  it('should be go to home page', () => {
     const { router } = useSetup(() => {
-      const { goToHome } = useGoto()
-
-      goToHome()
+      const { gotoHome } = useGoto()
+      gotoHome()
     })
 
-    expect(router.push).toHaveBeenCalledWith({ name: RouteNames.Home })
+    expect(router.push).toBeCalledWith({ name: RouteNames.HOME })
   })
-  it('should go to setting page', () => {
-    const { router } = useSetup(() => {
-      const { goToSettings } = useGoto()
 
-      goToSettings()
+  it('should be go to settings page', () => {
+    const { router } = useSetup(() => {
+      const { gotoSettings } = useGoto()
+
+      gotoSettings()
     })
 
-    expect(router.push).toHaveBeenCalledWith({ name: RouteNames.Settings })
+    expect(router.push).toBeCalledWith({ name: RouteNames.SETTINGS })
   })
-  it('should open github page', () => {
+
+  it('should be go to github', async () => {
     window.open = vi.fn()
 
-    goToGithub()
+    openGithub()
 
-    expect(window.open).toHaveBeenCalledWith(GITHUB_URL)
+    expect(window.open).toBeCalledWith(GITHUB_URL)
   })
 })

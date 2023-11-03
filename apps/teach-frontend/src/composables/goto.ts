@@ -4,26 +4,32 @@ import { RouteNames } from '@/router/const'
 export function useGoto() {
   const router = useRouter()
 
-  function goToHome() {
+  function gotoHome() {
     router.push({
-      name: RouteNames.Home,
+      name: RouteNames.HOME,
     })
   }
 
-  function goToSettings() {
+  function gotoSettings() {
     router.push({
-      name: RouteNames.Settings,
+      name: RouteNames.SETTINGS,
+    })
+  }
+
+  function gotoSettingsTheme() {
+    router.push({
+      name: RouteNames.SETTINGS_THEME,
     })
   }
 
   return {
-    goToHome,
-    goToSettings,
-    goToGithub,
+    gotoHome,
+    gotoSettings,
+    gotoSettingsTheme,
   }
 }
 
 export const GITHUB_URL = 'https://github.com/cuixueshe/dida'
-export function goToGithub() {
+export function openGithub() {
   window.open(GITHUB_URL)
 }
