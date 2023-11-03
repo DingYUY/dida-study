@@ -20,7 +20,7 @@ const subRoutes: RouteRecordRaw[] = sidebars.map(sidebar => ({
 export const SettingsRoute = {
   path: `/${SETTINGS_PATH}`,
   component: Settings,
-  name: RouteNames.Settings,
+  name: RouteNames.SETTINGS,
   meta: { title: '设置' },
   children: subRoutes,
   redirect: subRoutes[0].path,

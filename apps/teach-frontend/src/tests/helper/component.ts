@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils'
-export function useSetup<V>(setup: () => V) {
-  const cpn = {
+export function useSetup(setup: () => void) {
+  const Comp = {
     render() {},
     setup,
   }
 
-  const wrapper = mount(cpn)
+  const wrapper = mount(Comp)
 
   return {
     wrapper,

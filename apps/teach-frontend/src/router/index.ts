@@ -10,9 +10,9 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/',
     redirect: '/task',
-    name: RouteNames.Home,
+    name: RouteNames.HOME,
   },
-  { path: '/task', component: Task, name: RouteNames.Task },
+  { path: '/task', component: Task, name: RouteNames.TASK },
   SettingsRoute,
 ]
 
