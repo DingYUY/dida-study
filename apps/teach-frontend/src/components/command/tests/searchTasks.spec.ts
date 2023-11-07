@@ -14,7 +14,7 @@ describe('search tasks', () => {
     vi.mocked(tasksStore.findAllTasksNotRemoved).mockImplementation(async () => tasks)
 
     const listProjectStore = useListProjectsStore()
-    vi.mocked(listProjectStore.findProject).mockImplementation(async () => liveListProject)
+    vi.mocked(listProjectStore.findProject).mockImplementation(() => liveListProject)
 
     const { resetSearchTasks } = useSearchTasks()
 
@@ -56,7 +56,7 @@ describe('search tasks', () => {
 
     expect(filteredTasks.value[0].item.done).toBe(false)
     // console.log(filteredTasks.value)
-    // expect(filteredTasks.value[0].item.from?.name).toBe('生活')
+    expect(filteredTasks.value[0].item.from?.name).toBe('生活')
   })
   it('should be task\'s project is completeSmartProject when status is completed', async () => {
     const { filteredTasks, searchTasks } = useSearchTasks()
